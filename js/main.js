@@ -169,4 +169,14 @@ function setMap() {
             });
     }
 
+    function highlight(props) {
+        //change stroke
+        var selected = d3
+            .selectAll("." + props.Id)
+            .style("stroke", "blue")
+            .style("stroke-width", "2");
+        setLabel(props);
+    }
+
+
 }
