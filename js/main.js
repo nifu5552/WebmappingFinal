@@ -1,6 +1,6 @@
 window.onload = setMap();
 
-var attrArray = ["FIELD24", "FIELD84"];
+var attrArray = ["Field24", "Field84"];
 var expressed = attrArray[0];
 
 function setMap() {
@@ -18,11 +18,12 @@ function setMap() {
 
     var projection = d3
         .geoAlbers()
-        .center([-85,40])
-        .rotate([-2, 0, 0])
-        
-        .scale(5000)
-        .translate([width / 2, height / 2]);
+        .rotate([96, 0])
+        .center([13.1, 40.2])
+        .parallels([29.5, 45.5])
+        .scale(7000)
+        .translate([width / 2, height / 2])
+        .precision(.1);
 
     var path = d3.geoPath().projection(projection);
 
@@ -83,7 +84,7 @@ function setMap() {
                 } else if (value == "Somewhat poorly drained") {
                     return "#8A722E";
                 } else if (value == "Moderately well drained") {
-                return "#829E4C";
+                    return "#829E4C";
                 } else if (value == "Poorly drained") {
                     return "#865C2B";
                 } else if (value == "Somewhat excessively drained") {
@@ -93,7 +94,7 @@ function setMap() {
                 }
             });
 
-            var points = map
+        var points = map
             .selectAll(".regions")
             .data(TreeData2)
             .enter()
@@ -103,7 +104,7 @@ function setMap() {
             })
             .attr("d", path);
 
-            createDropdown(OhioData);
+        createDropdown(OhioData);
     }
 
 
@@ -134,7 +135,12 @@ function setMap() {
                 return d;
             })
             .text(function (d) {
-                return d;
+                if (d == "Field24") {
+                    return "Drainage"
+                }
+                else {
+                    return "Soil Order"
+                }
             });
     }
 
@@ -148,19 +154,19 @@ function setMap() {
             .transition()
             .duration(1000)
             .style("fill", function (d) {
-                var value = d.properties.Field24;
+                var value = d.properties.Field84;
                 if (value == "Alfisols") {
                     return "#ED87A5";
                 } else if (value == "Mollisols") {
                     return "#97A5D4";
                 } else if (value == "Inceptisols") {
-                return "#39B8B0";
+                    return "#39B8B0";
                 } else if (value == "Ultisols") {
                     return "#81B562";
                 } else if (value == "Entisols") {
                     return "#D59D49";
                 }
             });
-        }
-    
-}//insert code here!
+    }
+
+}
