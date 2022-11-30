@@ -1,54 +1,5 @@
-{
-  "displayFieldName" : "",
-  "fieldAliases" : {
-    "FID" : "FID",
-    "Id" : "Id",
-    "SP1" : "SP1",
-    "SP2" : "SP2",
-    "SP3" : "SP3",
-    "SP4" : "SP4"
-  },
-  "geometryType" : "esriGeometryPoint",
-  "spatialReference" : {
-    "wkid" : 4269,
-    "latestWkid" : 4269
-  },
-  "fields" : [
-    {
-      "name" : "FID",
-      "type" : "esriFieldTypeOID",
-      "alias" : "FID"
-    },
-    {
-      "name" : "Id",
-      "type" : "esriFieldTypeInteger",
-      "alias" : "Id"
-    },
-    {
-      "name" : "SP1",
-      "type" : "esriFieldTypeString",
-      "alias" : "SP1",
-      "length" : 80
-    },
-    {
-      "name" : "SP2",
-      "type" : "esriFieldTypeString",
-      "alias" : "SP2",
-      "length" : 80
-    },
-    {
-      "name" : "SP3",
-      "type" : "esriFieldTypeString",
-      "alias" : "SP3",
-      "length" : 80
-    },
-    {
-      "name" : "SP4",
-      "type" : "esriFieldTypeString",
-      "alias" : "SP4",
-      "length" : 80
-    }
-  ],
+{ "type":"FeatureCollection",
+  
   "features" : [
     {
       "attributes" : {
