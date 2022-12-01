@@ -6,8 +6,8 @@ var expressed = attrArray[0];
 function setMap() {
 
     //map frame dimensions
-    var width = 500,
-        height = 500;
+    var width = 600,
+        height = 600;
 
     var map = d3
         .select("body")
@@ -19,9 +19,9 @@ function setMap() {
     var projection = d3
         .geoAlbers()
         .rotate([96, 0])
-        .center([13.1, 40.2])
-        .parallels([29.5, 45.5])
-        .scale(7000)
+        .center([13.1, 40.35])
+        .parallels([29, 45.5])
+        .scale(8900)
         .translate([width / 2, height / 2])
         .precision(.1);
 
@@ -92,6 +92,9 @@ function setMap() {
                 } else if (value == "Very poorly drained") {
                     return "#7B492C";
                 }
+                else {
+                    return "#ffffff00";
+                }
             });
 
         var points = map
@@ -142,6 +145,8 @@ function setMap() {
                     return "Soil Order"
                 }
             });
+
+        //mydropdown(OhioData);
     }
 
     function changeAttribute(attribute, OhioData) {
