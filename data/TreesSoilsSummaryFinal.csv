@@ -1,0 +1,113 @@
+Soil Fields,Tree Type,Count
+Null,no tree,18
+Null,Other,10
+Null,Walnut,3
+Null,Tulip Poplar,1
+Null,Sycamore,10
+Null,Pine,0
+Null,Oak,35
+Null,Maple,21
+Null,Honey Locust,0
+Null,Hickory,14
+Null,Hackberry,2
+Null,Elm,15
+Null,Cherry,0
+Null,Beech,48
+Null,Basswood,2
+Null,Ash,7
+Ultisols,no tree,3
+Ultisols,Other,80
+Ultisols,Walnut,13
+Ultisols,Tulip Poplar,40
+Ultisols,Sycamore,3
+Ultisols,Pine,19
+Ultisols,Oak,527
+Ultisols,Maple,39
+Ultisols,Honey Locust,0
+Ultisols,Hickory,91
+Ultisols,Hackberry,1
+Ultisols,Elm,9
+Ultisols,Cherry,1
+Ultisols,Beech,41
+Ultisols,Basswood,1
+Ultisols,Ash,13
+Mollisols,no tree,10
+Mollisols,Other,10
+Mollisols,Walnut,1
+Mollisols,Tulip Poplar,2
+Mollisols,Sycamore,0
+Mollisols,Pine,0
+Mollisols,Oak,40
+Mollisols,Maple,13
+Mollisols,Honey Locust,1
+Mollisols,Hickory,16
+Mollisols,Hackberry,0
+Mollisols,Elm,13
+Mollisols,Cherry,0
+Mollisols,Beech,28
+Mollisols,Basswood,4
+Mollisols,Ash,21
+Inceptisols,no tree,34
+Inceptisols,Other,91
+Inceptisols,Walnut,19
+Inceptisols,Tulip Poplar,29
+Inceptisols,Sycamore,20
+Inceptisols,Pine,0
+Inceptisols,Oak,562
+Inceptisols,Maple,264
+Inceptisols,Honey Locust,1
+Inceptisols,Hickory,278
+Inceptisols,Hackberry,5
+Inceptisols,Elm,231
+Inceptisols,Cherry,3
+Inceptisols,Beech,677
+Inceptisols,Basswood,60
+Inceptisols,Ash,240
+Entisols,no tree,19
+Entisols,Other,23
+Entisols,Walnut,15
+Entisols,Tulip Poplar,23
+Entisols,Sycamore,6
+Entisols,Pine,0
+Entisols,Oak,368
+Entisols,Maple,84
+Entisols,Honey Locust,0
+Entisols,Hickory,48
+Entisols,Hackberry,3
+Entisols,Elm,20
+Entisols,Cherry,1
+Entisols,Beech,60
+Entisols,Basswood,4
+Entisols,Ash,21
+Alfisols,no tree,119
+Alfisols,Other,360
+Alfisols,Walnut,82
+Alfisols,Tulip Poplar,85
+Alfisols,Sycamore,65
+Alfisols,Pine,32
+Alfisols,Oak,2193
+Alfisols,Maple,730
+Alfisols,Honey Locust,6
+Alfisols,Hickory,709
+Alfisols,Hackberry,5
+Alfisols,Elm,510
+Alfisols,Cherry,6
+Alfisols,Beech,1594
+Alfisols,Basswood,226
+Alfisols,Ash,759
+Histosols,no tree,0
+Histosols,Other,0
+Histosols,Walnut,0
+Histosols,Tulip Poplar,0
+Histosols,Sycamore,0
+Histosols,Pine,0
+Histosols,Oak,0
+Histosols,Maple,0
+Histosols,Honey Locust,0
+Histosols,Hickory,0
+Histosols,Hackberry,0
+Histosols,Elm,0
+Histosols,Cherry,0
+Histosols,Beech,1
+Histosols,Basswood,0
+Histosols,Ash,0
