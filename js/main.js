@@ -591,104 +591,72 @@ OpenStreetMap_Mapnik.addTo(map);
 let SoilGroup = L.geoJSON(soildata, {
     onEachFeature: onEachFeature,
     //pointToLayer: pointToCircle,
-    //filter: filter
 });
 
 let Order= L.geoJSON(soildata, {
     onEachFeature: onEachFeature2,
     //pointToLayer: pointToCircle,
-    //filter: filter
 });
 
 let AshGroup = L.geoJSON(treedata, {
-    onEachFeature: addPopups,
     pointToLayer: pointToCircle1,
-    //filter: filter
 });
 
 let BasswoodGroup = L.geoJSON(treedata, {
-    onEachFeature: addPopups,
     pointToLayer: pointToCircle2,
-    //filter: filter
 });
 
 let BeechGroup = L.geoJSON(treedata, {
-    onEachFeature: addPopups,
     pointToLayer: pointToCircle3,
-    //filter: filter
 });
 
 let CherryGroup = L.geoJSON(treedata, {
-    onEachFeature: addPopups,
     pointToLayer: pointToCircle4,
-    //filter: filter
 });
 
 let ElmGroup = L.geoJSON(treedata, {
-    onEachFeature: addPopups,
     pointToLayer: pointToCircle5,
-    //filter: filter
 });
 
 let HackberryGroup = L.geoJSON(treedata, {
-    onEachFeature: addPopups,
     pointToLayer: pointToCircle6,
-    //filter: filter
 });
 
 let HickoryGroup = L.geoJSON(treedata, {
-    onEachFeature: addPopups,
     pointToLayer: pointToCircle7,
-    //filter: filter
 });
 
 let HoneyGroup = L.geoJSON(treedata, {
-    onEachFeature: addPopups,
     pointToLayer: pointToCircle8,
-    //filter: filter
 });
 
 let MapleGroup = L.geoJSON(treedata, {
-    onEachFeature: addPopups,
     pointToLayer: pointToCircle9,
-    //filter: filter
 });
 
 let OakGroup = L.geoJSON(treedata, {
-    onEachFeature: addPopups,
     pointToLayer: pointToCircle10,
-    //filter: filter
 });
 
 let PineGroup = L.geoJSON(treedata, {
-    onEachFeature: addPopups,
     pointToLayer: pointToCircle11,
-    //filter: filter
 });
 
 let SycamoreGroup = L.geoJSON(treedata, {
-    onEachFeature: addPopups,
     pointToLayer: pointToCircle12,
-    //filter: filter
 });
 
 let TulipGroup = L.geoJSON(treedata, {
-    onEachFeature: addPopups,
     pointToLayer: pointToCircle13,
-    //filter: filter
 });
 
 let WalnutGroup = L.geoJSON(treedata, {
-    onEachFeature: addPopups,
     pointToLayer: pointToCircle14,
-    //filter: filter
 });
 
 
 let OtherGroup = L.geoJSON(treedata, {
-    onEachFeature: addPopups,
     pointToLayer: pointToCircle15,
-    //filter: filter
 });
 
 
