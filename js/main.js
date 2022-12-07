@@ -1,187 +1,723 @@
-window.onload = setMap();
+"use strict";
 
-var attrArray = ["Field24", "Field84"];
-var expressed = attrArray[0];
-
-function setMap() {
-
-    //map frame dimensions
-    var width = 600,
-        height = 600;
-
-    var map = d3
-        .select("body")
-        .append("svg")
-        .attr("class", "map")
-        .attr("width", width)
-        .attr("height", height);
-
-    var projection = d3
-        .geoAlbers()
-        .rotate([96, 0])
-        .center([13.1, 40.35])
-        .parallels([29, 45.5])
-        .scale(8900)
-        .translate([width / 2, height / 2])
-        .precision(.1);
-
-    var path = d3.geoPath().projection(projection);
-
-    var promises =
-        [
-            d3.json("data/MrCleanData.json"),
-            d3.json("data/TreeGeoJSON.json")
-        ];
-
-    Promise.all(promises).then(callback);
-
-    function callback(data) {
-        var OhioData = data[0],
-            TreeGeoJSON = data[1];
-
-        var MrCleanData = topojson.feature(OhioData, OhioData.objects.MrCleanData).features,
-            TreeData2 = topojson.feature(TreeGeoJSON, TreeGeoJSON.objects.TreeGeoJSON).features;
-
-
-        console.log(MrCleanData);
-        console.log(TreeData2);
-
-        var graticule = d3.geoGraticule().step([5, 5]);
-
-        var gratBackground = map
-            .append("path")
-            .datum(graticule.outline())
-            .attr("class", "gratBackground")
-            .attr("d", path);
-
-        var gratLines = map
-            .selectAll(".gratLines")
-            .data(graticule.lines())
-            .enter()
-            .append("path")
-            .attr("class", "gratLines")
-            .attr("d", path);
-
-        var drainage = map
-            .append("path")
-            .datum(MrCleanData)
-            .attr("class", "Field24")
-            .attr("d", path);
-
-        var drainage = map
-            .selectAll(".regions")
-            .data(MrCleanData)
-            .enter()
-            .append("path")
-            .attr("class", function (d) {
-                return "Field24 " + d.properties.Field24;
-            })
-            .attr("d", path)
-            .style("fill", function (d) {
-                var value = d.properties.Field24;
-                if (value == "Well drained") {
-                    return "#76B468";
-                } else if (value == "Somewhat poorly drained") {
-                    return "#8A722E";
-                } else if (value == "Moderately well drained") {
-                    return "#829E4C";
-                } else if (value == "Poorly drained") {
-                    return "#865C2B";
-                } else if (value == "Somewhat excessively drained") {
-                    return "#898838";
-                } else if (value == "Very poorly drained") {
-                    return "#7B492C";
-                }
-                else {
-                    return "#ffffff00";
-                }
-            });
-
-        var points = map
-            .selectAll(".regions")
-            .data(TreeData2)
-            .enter()
-            .append("path")
-            .attr("class", function (d) {
-                return "Id" + d.properties.Id;
-            })
-            .attr("d", path);
-
-        createDropdown(OhioData);
+function onEachFeature(feature, layer) {
+    var value = feature.properties.Field24;
+    if (value == "Well drained") {
+        layer.setStyle({
+            fillColor: "#dfc27d",
+            stroke: false,
+            fillOpacity: .9
+        });
     }
-
-
-    function createDropdown(OhioData) {
-        //add select element
-        var dropdown = d3
-            .select("body")
-            .append("select")
-            .attr("class", "dropdown")
-            .on("change", function () {
-                changeAttribute(this.value, OhioData);
-            });
-
-        //add initial option
-        var titleOption = dropdown
-            .append("option")
-            .attr("class", "titleOption")
-            .attr("disabled", "true")
-            .text("Select Attribute");
-
-        //add attribute name options
-        var attrOptions = dropdown
-            .selectAll("attrOptions")
-            .data(attrArray)
-            .enter()
-            .append("option")
-            .attr("value", function (d) {
-                return d;
-            })
-            .text(function (d) {
-                if (d == "Field24") {
-                    return "Drainage"
-                }
-                else {
-                    return "Soil Order"
-                }
-            });
-
-        //mydropdown(OhioData);
+    else if (value == "Excessively drained") {
+        layer.setStyle({
+            fillColor: "#8c510a",
+            stroke: false,
+            fillOpacity: .9
+        });
     }
-
-    function changeAttribute(attribute, OhioData) {
-        //change the expressed attribute
-        expressed = attribute;
-
-        //recolor enumeration units
-        var regions = d3
-            .selectAll(".regions")
-            .transition()
-            .duration(1000)
-            .style("fill", function (d) {
-                var value = d.properties.Field84;
-                if (value == "Alfisols") {
-                    return "#ED87A5";
-                } else if (value == "Mollisols") {
-                    return "#97A5D4";
-                } else if (value == "Inceptisols") {
-                    return "#39B8B0";
-                } else if (value == "Ultisols") {
-                    return "#81B562";
-                } else if (value == "Entisols") {
-                    return "#D59D49";
-                }
-            });
+    else if (value == "Moderately well drained") {
+        layer.setStyle({
+            fillColor: "#f6e8c3",
+            stroke: false,
+            fillOpacity: .9
+        });
     }
-
-    function highlight(props) {
-        //change stroke
-        var selected = d3
-            .selectAll("." + props.Id)
-            .style("stroke", "blue")
-            .style("stroke-width", "2");
-        setLabel(props);
+    else if (value == "Somewhat excessively drained") {
+        layer.setStyle({
+            fillColor: "#bf812d",
+            stroke: false,
+            fillOpacity: .9
+        });
     }
-
+    else if (value == "Somewhat poorly drained") {
+        layer.setStyle({
+            fillColor: "#80cdc1",
+            stroke: false,
+            fillOpacity: .9
+        });
+    }
+    else if (value == "Poorly drained") {
+        layer.setStyle({
+            fillColor: "#35978f",
+            stroke: false,
+            fillOpacity: .9
+        });
+    }
+    else if (value == "Very poorly drained") {
+        layer.setStyle({
+            fillColor: "#01665e",
+            stroke: false,
+            fillOpacity: .9
+        });
+    }
+    else {
+        layer.setStyle({
+            fillColor: "#808080",
+            stroke: false,
+            fillOpacity: .9
+        });
+    }
 
 }
+
+function onEachFeature2(feature, layer) {
+    var value = feature.properties.Field84;
+    if (value == "Alfisols") {
+        layer.setStyle({
+            fillColor: "#2166ac",
+            stroke: false,
+            fillOpacity: .9
+        });
+    }
+    else if (value == "Mollisols") {
+        layer.setStyle({
+            fillColor: "#67a9cf",
+            stroke: false,
+            fillOpacity: .9
+        });
+    }
+    else if (value == "Inceptisols") {
+        layer.setStyle({
+            fillColor: "#d1e5f0",
+            stroke: false,
+            fillOpacity: .9
+        });
+    }
+    else if (value == "Ultisols") {
+        layer.setStyle({
+            fillColor: "#fddbc7",
+            stroke: false,
+            fillOpacity: .9
+        });
+    }
+    else if (value == "Entisols") {
+        layer.setStyle({
+            fillColor: "#ef8a62",
+            stroke: false,
+            fillOpacity: .9
+        });
+    }
+    else {
+        layer.setStyle({
+            fillColor: "#808080",
+            stroke: false,
+            fillOpacity: .9
+        });
+    }
+
+}
+
+function pointToCircle1(feature, latlng) {
+
+    let fillColorVar = "";
+    let fillOpacityVar = 0;
+    let StrokeVar = 0;
+
+    if ((feature.properties["SP1"]) == "Ash") {
+        fillColorVar = "black",
+        fillOpacityVar= "1";
+    } 
+    else {
+        fillOpacityVar = 0,
+        StrokeVar =0
+        fillColorVar = "blue";
+    } 
+    
+    let geojsonMarkerOptions = {
+        radius: 3,
+        fillColor: fillColorVar,
+        color: "#000",
+        weight: 1,
+        opacity: fillOpacityVar,
+        stroke: StrokeVar,
+        fillOpacity: fillOpacityVar
+    };
+
+    let circleMarker = L.circleMarker(latlng, geojsonMarkerOptions);
+
+    return circleMarker;
+}
+
+function pointToCircle2(feature, latlng) {
+
+    let fillColorVar = "";
+    let fillOpacityVar = 0;
+    let StrokeVar = 0;
+
+    if ((feature.properties["SP1"]) == "Basswood") {
+        fillColorVar = "black",
+        fillOpacityVar= "1";
+    } 
+    else {
+        fillOpacityVar = 0,
+        StrokeVar =0
+        fillColorVar = "blue";
+    } 
+    
+    let geojsonMarkerOptions = {
+        radius: 3,
+        fillColor: fillColorVar,
+        color: "#000",
+        weight: 1,
+        opacity: fillOpacityVar,
+        stroke: StrokeVar,
+        fillOpacity: fillOpacityVar
+    };
+
+    let circleMarker = L.circleMarker(latlng, geojsonMarkerOptions);
+
+    return circleMarker;
+}
+
+function pointToCircle3(feature, latlng) {
+
+    let fillColorVar = "";
+    let fillOpacityVar = 0;
+    let StrokeVar = 0;
+
+    if ((feature.properties["SP1"]) == "Beech") {
+        fillColorVar = "black",
+        fillOpacityVar= "1";
+    } 
+    else {
+        fillOpacityVar = 0,
+        StrokeVar =0
+        fillColorVar = "blue";
+    } 
+    
+    let geojsonMarkerOptions = {
+        radius: 3,
+        fillColor: fillColorVar,
+        color: "#000",
+        weight: 1,
+        opacity: fillOpacityVar,
+        stroke: StrokeVar,
+        fillOpacity: fillOpacityVar
+    };
+
+    let circleMarker = L.circleMarker(latlng, geojsonMarkerOptions);
+
+    return circleMarker;
+}
+
+function pointToCircle4(feature, latlng) {
+
+    let fillColorVar = "";
+    let fillOpacityVar = 0;
+    let StrokeVar = 0;
+
+    if ((feature.properties["SP1"]) == "Cherry") {
+        fillColorVar = "black",
+        fillOpacityVar= "1";
+    } 
+    else {
+        fillOpacityVar = 0,
+        StrokeVar =0
+        fillColorVar = "blue";
+    } 
+    
+    let geojsonMarkerOptions = {
+        radius: 3,
+        fillColor: fillColorVar,
+        color: "#000",
+        weight: 1,
+        opacity: fillOpacityVar,
+        stroke: StrokeVar,
+        fillOpacity: fillOpacityVar
+    };
+
+    let circleMarker = L.circleMarker(latlng, geojsonMarkerOptions);
+
+    return circleMarker;
+}
+
+function pointToCircle5(feature, latlng) {
+
+    let fillColorVar = "";
+    let fillOpacityVar = 0;
+    let StrokeVar = 0;
+
+    if ((feature.properties["SP1"]) == "Elm") {
+        fillColorVar = "black",
+        fillOpacityVar= "1";
+    } 
+    else {
+        fillOpacityVar = 0,
+        StrokeVar =0
+        fillColorVar = "blue";
+    } 
+    
+    let geojsonMarkerOptions = {
+        radius: 3,
+        fillColor: fillColorVar,
+        color: "#000",
+        weight: 1,
+        opacity: fillOpacityVar,
+        stroke: StrokeVar,
+        fillOpacity: fillOpacityVar
+    };
+
+    let circleMarker = L.circleMarker(latlng, geojsonMarkerOptions);
+
+    return circleMarker;
+}
+
+function pointToCircle6(feature, latlng) {
+
+    let fillColorVar = "";
+    let fillOpacityVar = 0;
+    let StrokeVar = 0;
+
+    if ((feature.properties["SP1"]) == "Hackberry") {
+        fillColorVar = "black",
+        fillOpacityVar= "1";
+    } 
+    else {
+        fillOpacityVar = 0,
+        StrokeVar =0
+        fillColorVar = "blue";
+    } 
+    
+    let geojsonMarkerOptions = {
+        radius: 3,
+        fillColor: fillColorVar,
+        color: "#000",
+        weight: 1,
+        opacity: fillOpacityVar,
+        stroke: StrokeVar,
+        fillOpacity: fillOpacityVar
+    };
+
+    let circleMarker = L.circleMarker(latlng, geojsonMarkerOptions);
+
+    return circleMarker;
+}
+
+function pointToCircle7(feature, latlng) {
+
+    let fillColorVar = "";
+    let fillOpacityVar = 0;
+    let StrokeVar = 0;
+
+    if ((feature.properties["SP1"]) == "Hickory") {
+        fillColorVar = "black",
+        fillOpacityVar= "1";
+    } 
+    else {
+        fillOpacityVar = 0,
+        StrokeVar =0
+        fillColorVar = "blue";
+    } 
+    
+    let geojsonMarkerOptions = {
+        radius: 3,
+        fillColor: fillColorVar,
+        color: "#000",
+        weight: 1,
+        opacity: fillOpacityVar,
+        stroke: StrokeVar,
+        fillOpacity: fillOpacityVar
+    };
+
+    let circleMarker = L.circleMarker(latlng, geojsonMarkerOptions);
+
+    return circleMarker;
+}
+
+function pointToCircle8(feature, latlng) {
+
+    let fillColorVar = "";
+    let fillOpacityVar = 0;
+    let StrokeVar = 0;
+
+    if ((feature.properties["SP1"]) == "Honey Locust") {
+        fillColorVar = "black",
+        fillOpacityVar= "1";
+    } 
+    else {
+        fillOpacityVar = 0,
+        StrokeVar =0
+        fillColorVar = "blue";
+    } 
+    
+    let geojsonMarkerOptions = {
+        radius: 3,
+        fillColor: fillColorVar,
+        color: "#000",
+        weight: 1,
+        opacity: fillOpacityVar,
+        stroke: StrokeVar,
+        fillOpacity: fillOpacityVar
+    };
+
+    let circleMarker = L.circleMarker(latlng, geojsonMarkerOptions);
+
+    return circleMarker;
+}
+
+function pointToCircle9(feature, latlng) {
+
+    let fillColorVar = "";
+    let fillOpacityVar = 0;
+    let StrokeVar = 0;
+
+    if ((feature.properties["SP1"]) == "Maple") {
+        fillColorVar = "black",
+        fillOpacityVar= "1";
+    } 
+    else {
+        fillOpacityVar = 0,
+        StrokeVar =0
+        fillColorVar = "blue";
+    } 
+    
+    let geojsonMarkerOptions = {
+        radius: 3,
+        fillColor: fillColorVar,
+        color: "#000",
+        weight: 1,
+        opacity: fillOpacityVar,
+        stroke: StrokeVar,
+        fillOpacity: fillOpacityVar
+    };
+
+    let circleMarker = L.circleMarker(latlng, geojsonMarkerOptions);
+
+    return circleMarker;
+}
+
+function pointToCircle10(feature, latlng) {
+
+    let fillColorVar = "";
+    let fillOpacityVar = 0;
+    let StrokeVar = 0;
+
+    if ((feature.properties["SP1"]) == "Oak") {
+        fillColorVar = "black",
+        fillOpacityVar= "1";
+    } 
+    else {
+        fillOpacityVar = 0,
+        StrokeVar =0
+        fillColorVar = "blue";
+    } 
+    
+    let geojsonMarkerOptions = {
+        radius: 3,
+        fillColor: fillColorVar,
+        color: "#000",
+        weight: 1,
+        opacity: fillOpacityVar,
+        stroke: StrokeVar,
+        fillOpacity: fillOpacityVar
+    };
+
+    let circleMarker = L.circleMarker(latlng, geojsonMarkerOptions);
+
+    return circleMarker;
+}
+
+function pointToCircle11(feature, latlng) {
+
+    let fillColorVar = "";
+    let fillOpacityVar = 0;
+    let StrokeVar = 0;
+
+    if ((feature.properties["SP1"]) == "Pine") {
+        fillColorVar = "black",
+        fillOpacityVar= "1";
+    } 
+    else {
+        fillOpacityVar = 0,
+        StrokeVar =0
+        fillColorVar = "blue";
+    } 
+    
+    let geojsonMarkerOptions = {
+        radius: 3,
+        fillColor: fillColorVar,
+        color: "#000",
+        weight: 1,
+        opacity: fillOpacityVar,
+        stroke: StrokeVar,
+        fillOpacity: fillOpacityVar
+    };
+
+    let circleMarker = L.circleMarker(latlng, geojsonMarkerOptions);
+
+    return circleMarker;
+}
+
+function pointToCircle12(feature, latlng) {
+
+    let fillColorVar = "";
+    let fillOpacityVar = 0;
+    let StrokeVar = 0;
+
+    if ((feature.properties["SP1"]) == "Sycamore") {
+        fillColorVar = "black",
+        fillOpacityVar= "1";
+    } 
+    else {
+        fillOpacityVar = 0,
+        StrokeVar =0
+        fillColorVar = "blue";
+    } 
+    
+    let geojsonMarkerOptions = {
+        radius: 3,
+        fillColor: fillColorVar,
+        color: "#000",
+        weight: 1,
+        opacity: fillOpacityVar,
+        stroke: StrokeVar,
+        fillOpacity: fillOpacityVar
+    };
+
+    let circleMarker = L.circleMarker(latlng, geojsonMarkerOptions);
+
+    return circleMarker;
+}
+
+function pointToCircle13(feature, latlng) {
+
+    let fillColorVar = "";
+    let fillOpacityVar = 0;
+    let StrokeVar = 0;
+
+    if ((feature.properties["SP1"]) == "Tulip Poplar") {
+        fillColorVar = "black",
+        fillOpacityVar= "1";
+    } 
+    else {
+        fillOpacityVar = 0,
+        StrokeVar =0
+        fillColorVar = "blue";
+    } 
+    
+    let geojsonMarkerOptions = {
+        radius: 3,
+        fillColor: fillColorVar,
+        color: "#000",
+        weight: 1,
+        opacity: fillOpacityVar,
+        stroke: StrokeVar,
+        fillOpacity: fillOpacityVar
+    };
+
+    let circleMarker = L.circleMarker(latlng, geojsonMarkerOptions);
+
+    return circleMarker;
+}
+
+function pointToCircle14(feature, latlng) {
+
+    let fillColorVar = "";
+    let fillOpacityVar = 0;
+    let StrokeVar = 0;
+
+    if ((feature.properties["SP1"]) == "Walnut") {
+        fillColorVar = "black",
+        fillOpacityVar= "1";
+    } 
+    else {
+        fillOpacityVar = 0,
+        StrokeVar =0
+        fillColorVar = "blue";
+    } 
+    
+    let geojsonMarkerOptions = {
+        radius: 3,
+        fillColor: fillColorVar,
+        color: "#000",
+        weight: 1,
+        opacity: fillOpacityVar,
+        stroke: StrokeVar,
+        fillOpacity: fillOpacityVar
+    };
+
+    let circleMarker = L.circleMarker(latlng, geojsonMarkerOptions);
+
+    return circleMarker;
+}
+
+function pointToCircle15(feature, latlng) {
+
+    let fillColorVar = "";
+    let fillOpacityVar = 0;
+    let StrokeVar = 0;
+
+    if ((feature.properties["SP1"]) == "Other") {
+        fillColorVar = "black",
+        fillOpacityVar= "1";
+    } 
+    else {
+        fillOpacityVar = 0,
+        StrokeVar =0
+        fillColorVar = "blue";
+    } 
+    
+    let geojsonMarkerOptions = {
+        radius: 3,
+        fillColor: fillColorVar,
+        color: "#000",
+        weight: 1,
+        opacity: fillOpacityVar,
+        stroke: StrokeVar,
+        fillOpacity: fillOpacityVar
+    };
+
+    let circleMarker = L.circleMarker(latlng, geojsonMarkerOptions);
+
+    return circleMarker;
+}
+
+function addPopups(feature, layer) {
+    if (feature.properties && feature.properties.SP1) {
+        layer.bindPopup("Tree type: " + feature.properties.SP1);
+    }
+}
+
+let map = L.map('mapId');
+
+var OpenStreetMap_Mapnik = L.tileLayer('https://api.mapbox.com/styles/v1/alva23/cl7qr2x1b000114pn2bzwliyf/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWx2YTIzIiwiYSI6ImNsN3FyMXd5bDAxOGszeHFuM3B1MWs2a3EifQ.n0OsLThFKSNJVZ2c-2sr7A', {
+    maxZoom: 20,
+    attribution: '&copy; <a href=”https://www.mapbox.com/about/maps/”>Mapbox</a> &copy; <a href=”http://www.openstreetmap.org/copyright”>OpenStreetMap</a>'
+});
+
+OpenStreetMap_Mapnik.addTo(map);
+
+let SoilGroup = L.geoJSON(soildata, {
+    onEachFeature: onEachFeature,
+    //pointToLayer: pointToCircle,
+    //filter: filter
+});
+
+let Order= L.geoJSON(soildata, {
+    onEachFeature: onEachFeature2,
+    //pointToLayer: pointToCircle,
+    //filter: filter
+});
+
+let AshGroup = L.geoJSON(treedata, {
+    onEachFeature: addPopups,
+    pointToLayer: pointToCircle1,
+    //filter: filter
+});
+
+let BasswoodGroup = L.geoJSON(treedata, {
+    onEachFeature: addPopups,
+    pointToLayer: pointToCircle2,
+    //filter: filter
+});
+
+let BeechGroup = L.geoJSON(treedata, {
+    onEachFeature: addPopups,
+    pointToLayer: pointToCircle3,
+    //filter: filter
+});
+
+let CherryGroup = L.geoJSON(treedata, {
+    onEachFeature: addPopups,
+    pointToLayer: pointToCircle4,
+    //filter: filter
+});
+
+let ElmGroup = L.geoJSON(treedata, {
+    onEachFeature: addPopups,
+    pointToLayer: pointToCircle5,
+    //filter: filter
+});
+
+let HackberryGroup = L.geoJSON(treedata, {
+    onEachFeature: addPopups,
+    pointToLayer: pointToCircle6,
+    //filter: filter
+});
+
+let HickoryGroup = L.geoJSON(treedata, {
+    onEachFeature: addPopups,
+    pointToLayer: pointToCircle7,
+    //filter: filter
+});
+
+let HoneyGroup = L.geoJSON(treedata, {
+    onEachFeature: addPopups,
+    pointToLayer: pointToCircle8,
+    //filter: filter
+});
+
+let MapleGroup = L.geoJSON(treedata, {
+    onEachFeature: addPopups,
+    pointToLayer: pointToCircle9,
+    //filter: filter
+});
+
+let OakGroup = L.geoJSON(treedata, {
+    onEachFeature: addPopups,
+    pointToLayer: pointToCircle10,
+    //filter: filter
+});
+
+let PineGroup = L.geoJSON(treedata, {
+    onEachFeature: addPopups,
+    pointToLayer: pointToCircle11,
+    //filter: filter
+});
+
+let SycamoreGroup = L.geoJSON(treedata, {
+    onEachFeature: addPopups,
+    pointToLayer: pointToCircle12,
+    //filter: filter
+});
+
+let TulipGroup = L.geoJSON(treedata, {
+    onEachFeature: addPopups,
+    pointToLayer: pointToCircle13,
+    //filter: filter
+});
+
+let WalnutGroup = L.geoJSON(treedata, {
+    onEachFeature: addPopups,
+    pointToLayer: pointToCircle14,
+    //filter: filter
+});
+
+
+let OtherGroup = L.geoJSON(treedata, {
+    onEachFeature: addPopups,
+    pointToLayer: pointToCircle15,
+    //filter: filter
+});
+
+
+//SoilGroup.addTo(map);
+//Order.addTo(map);
+
+var baseMaps = {
+    "OpenStreetMap": OpenStreetMap_Mapnik
+};
+
+var overlayMaps = {
+    "Drainage": SoilGroup,
+    "Soil Order": Order,
+    "Ash" : AshGroup,
+    "Beech" : BeechGroup,
+    "Cherry" : CherryGroup,
+    "Elm" : ElmGroup,
+    "Hackberry" : HackberryGroup,
+    "Hickory" : HickoryGroup,
+    "Honey" : HoneyGroup,
+    "Maple" : MapleGroup,
+    "Oak" : OakGroup,
+    "Pine" : PineGroup,
+    "Sycamore" : SycamoreGroup,
+    "Tulip" : TulipGroup,
+    "Walnut" : WalnutGroup,
+    "Other" : OtherGroup,
+};
+
+L.control.layers(baseMaps, overlayMaps).addTo(map);
+//TreeGroup.addTo(map);
+map.fitBounds(SoilGroup.getBounds());
