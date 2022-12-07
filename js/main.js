@@ -676,7 +676,7 @@ var overlayMaps = {
     "Elm" : ElmGroup,
     "Hackberry" : HackberryGroup,
     "Hickory" : HickoryGroup,
-    "Honey" : HoneyGroup,
+    "Honey Locust" : HoneyGroup,
     "Maple" : MapleGroup,
     "Oak" : OakGroup,
     "Pine" : PineGroup,
