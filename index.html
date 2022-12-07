@@ -1,31 +1,31 @@
+
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-            <title>Final Project</title>
+<html>
 
-        <!--put your external stylesheet links here-->
-        <link rel="stylesheet" href="css/style.css">
-        <!--[if IE<9]>
-            <link rel="stylesheet" href="css/style.ie.css">
-        <![endif]-->    
-    </head>
+<head>
+  <meta charest="UTF-8">
+  <title>Lab 2</title>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <link rel="stylesheet" , href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+  <script src="data/MrCleanData.js"></script>
+  <script src="data/FinalGeoJSON.js"></script>
+  <style>
+    #mapId {
+      width: 600px;
+      height: 700px;
+    }
+  </style>
+</head>
 
-    <body>
-        <!--put your initial page content here-->
-        <h1>Historic Tree Growth in Ohio</h1>
+<body>
+  <h1>Historic Tree Growth in Ohio</h1>
         <b>By: Michael Luna, Nico Fuentes, Alexander van Engelen - University of Colorado Boulder; GEOG 4043 Final Project</b>
 
         <p>This app was created to visualize different attributes on the growth of Ohio trees in the year 1786. </p>
+  <div id="mapId"></div>
+  <script src="main.js"></script>
+  <div id="panel"></div>
+  
+</body>
 
-        <!--you can also use this space for internal scripts;
-        place these within <script> tags-->
-
-        <!--put your external script links here-->
-        <script type="text/javascript" src="lib/jquery-3.5.1.js"></script>
-        <script type="text/javascript" src="lib/topojson.min.js"></script>
-        <script type="text/javascript" src="lib/d3.min.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
-    </body>
 </html>
