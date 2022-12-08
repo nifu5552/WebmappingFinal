@@ -17,7 +17,7 @@ body {
 
 #mapId {
   width: 500px;
-  height: 650px;
+  height: 670px;
   position: absolute;
 }
 
@@ -31,9 +31,9 @@ body {
 
 #drainagelegend {
   position: absolute;
-  width: 200px;
-  height: 300px;
-  top: 410px;
+  width: 100px;
+  height: 150px;
+  top: 431px;
   left: 520px;
 }
 
@@ -41,7 +41,7 @@ body {
 /* Popup container */
 #popup {
   position: absolute;
-  top: 750px;
+  top: 760px;
   display: inline-block;
   cursor: pointer;
 }
@@ -58,7 +58,7 @@ body {
   position: relative;
   z-index: 100;
   bottom: 0%;
-  left: 30%;
+  left: 13%;
   margin-left: -80px;
 }
 
