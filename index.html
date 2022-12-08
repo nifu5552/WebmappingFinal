@@ -3,41 +3,39 @@
 
 <head>
   <meta charest="UTF-8">
-  <title>Final Project</title>
+  <title>1786 Historic Tree Growth in Ohio</title>
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-  <link rel="stylesheet" , href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"> 
-  <!--<link rel="stylesheet" href="css/styles.css">-->
+  <link rel="stylesheet" , href="css/style.css">
+  <link rel="stylesheet" , href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
   <script src="data/MrCleanData.js"></script>
   <script src="data/FinalGeoJSON.js"></script>
-  <style>
-    #mapId {
-      width: 500px;
-      height: 700px;
-    }
-    #legend {
-      width: 200px;
-      height: 300px;
-      position: fixed;
-      top: 30;
-      left: 600px;
-      border: 3px solid #73AD21;
-    }
-  </style>
 </head>
 
 <body>
   <h1>Historic Tree Growth in Ohio</h1>
-        <b>By: Alexander van Engelen, Nico Fuentes, Michael Luna - University of Colorado Boulder; GEOG 4043 Final Project</b>
+        <!--<b>By: Alexander van Engelen, Nico Fuentes, Michael Luna - University of Colorado Boulder; GEOG 4043 Final Project</b>
 
-        <p>This app was created to visualize different attributes on the growth of Ohio trees in the year 1786. </p>
-  <div id="mapId"></div>
-  <script src="js/main.js"></script>
-  <div id = "legend"> 
-  <img src="img/soil.jpeg" alt="Soil Order Legend">
-  <img src="img/drainage.jpeg" alt="Drainage Legend">
+        <p>This app was created to visualize different attributes on the growth of Ohio trees in the year 1786. </p>-->
+  <div id="mapId"> 
+  <script src="js/main.js"></script> 
   </div>
- 
-  
+  <div id="soillegend">
+    <img src="img/soil.jpeg" alt="Soil Order Legend">
+  </div>
+  <div id="drainagelegend">
+    <img src="img/drainage.jpeg" alt="Drainage Legend">
+  </div>
+
+  <div id="popup" onclick="myFunction()">Creators
+    <span class="popuptext" id="myPopup"> By: Alexander van Engelen, Nico Fuentes, Michael Luna </span>
+  </div>
+
+  <script> 
+    function myFunction() {
+      var popup = document.getElementById("myPopup");
+      popup.classList.toggle("show");
+    }
+  </script>
 </body>
 
 </html>
