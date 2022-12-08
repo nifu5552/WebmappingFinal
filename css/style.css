@@ -1,10 +1,70 @@
-#mapId {
-      width: 600px;
-      height: 600px;
-    }
+h1 {
+  background-color: #c5e633;
+  color: black;
+  text-align: center;
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
 
-.parent {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        column-gap: 5px;
-    }
+body {
+  background-color: #fefbd8;
+}
+
+#mapId {
+  width: 500px;
+  height: 650px;
+  position: absolute;
+}
+
+#soillegend {
+  position: absolute;
+  width: 200px;
+  height: 300px;
+  top: 80px;
+  left: 520px;
+}
+
+#drainagelegend {
+  position: absolute;
+  width: 200px;
+  height: 300px;
+  top: 410px;
+  left: 520px;
+}
+
+
+/* Popup container */
+#popup {
+  position: absolute;
+  top: 750px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+#popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: relative;
+  z-index: 100;
+  bottom: 0%;
+  left: 30%;
+  margin-left: -80px;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+#popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
