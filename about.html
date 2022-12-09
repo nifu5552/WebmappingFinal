@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charest="UTF-8">
+  <title>1786 Historic Tree Growth in Ohio</title>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <link rel="stylesheet" , href="css/style.css">
+  <link rel="stylesheet" , href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+  <script src="data/MrCleanData.js"></script>
+  <script src="data/FinalGeoJSON.js"></script>
+</head>
+
+<body>
+  <h1>Historic Tree Growth in Ohio
+
+  </h1>
+        <!--<b>By: Alexander van Engelen, Nico Fuentes, Michael Luna - University of Colorado Boulder; GEOG 4043 Final Project</b>
+
+        <p>This app was created to visualize different attributes on the growth of Ohio trees in the year 1786. </p>-->
+  <div id="mapId"> 
+  <script src="js/main.js"></script> 
+  </div>
+  <div id="soillegend">
+    <img src="img/soil.jpeg" alt="Soil Order Legend">
+  </div>
+  <div id="drainagelegend">
+    <img src="img/drainage.jpeg" alt="Drainage Legend">
+  </div>
+
+  <div id="popup" onclick="myFunction()">About
+    <span class="popuptext" id="myPopup"> 
+      By: Alexander van Engelen, Nico Fuentes, Michael Luna.
+      Created for GEOG 4043 at the University of Colorado Boulder </span>
+  </div>
+
+  <p> <a href="https://www.w3schools.com/">Visit W3Schools.com!</a> </p>
+
+  <!--<div id="popup2" onclick="myFunction()">Purpose
+    <span class="popuptext2" id="myPopup2"> This app was created to visualize different attributes on the growth of Ohio trees in the year 1786. </span>
+  </div>-->
+
+  <script> 
+    function myFunction() {
+      var popup = document.getElementById("myPopup");
+      popup.classList.toggle("show");
+    }
+  </script>
+</body>
+
+</html>
