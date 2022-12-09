@@ -5,6 +5,7 @@
   <meta charest="UTF-8">
   <title>1786 Historic Tree Growth in Ohio</title>
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://d3js.org/d3.v6.js"></script>
   <link rel="stylesheet" , href="css/style.css">
   <link rel="stylesheet" , href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
   <script src="data/MrCleanData.js"></script>
@@ -15,11 +16,11 @@
   <h1>Historic Tree Growth in Ohio
 
   </h1>
-        <!--<b>By: Alexander van Engelen, Nico Fuentes, Michael Luna - University of Colorado Boulder; GEOG 4043 Final Project</b>
+  <!--<b>By: Alexander van Engelen, Nico Fuentes, Michael Luna - University of Colorado Boulder; GEOG 4043 Final Project</b>
 
         <p>This app was created to visualize different attributes on the growth of Ohio trees in the year 1786. </p>-->
-  <div id="mapId"> 
-  <script src="js/main.js"></script> 
+  <div id="mapId">
+    <script src="js/main.js"></script>
   </div>
   <div id="soillegend">
     <img src="img/soil2.jpeg" alt="Soil Order Legend">
@@ -28,8 +29,19 @@
     <img src="img/drainage.jpeg" alt="Drainage Legend">
   </div>
 
+  <div id="my_dataviz">
+    <div id="my_soilMatrix">
+      <script src="js/soilMatrix.js"></script>
+    </div>
+
+
+    <div id="my_drainageMatrix">
+      <script src="js/drainageMatrix.js"></script>
+    </div>
+  </div>
+
   <div id="popup" onclick="myFunction()">About
-    <span class="popuptext" id="myPopup"> 
+    <span class="popuptext" id="myPopup">
       By: Alexander van Engelen, Nico Fuentes, Michael Luna.
       Created for GEOG 4043 at the University of Colorado Boulder </span>
   </div>
@@ -38,7 +50,7 @@
     <span class="popuptext2" id="myPopup2"> This app was created to visualize different attributes on the growth of Ohio trees in the year 1786. </span>
   </div>-->
 
-  <script> 
+  <script>
     function myFunction() {
       var popup = document.getElementById("myPopup");
       popup.classList.toggle("show");
