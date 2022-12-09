@@ -16,25 +16,23 @@ body {
 }
 
 #mapId {
-  width: 500px;
-  height: 670px;
+  width: 440px;
+  height: 500px;
   position: absolute;
 }
 
 #soillegend {
   position: absolute;
-  width: 200px;
-  height: 300px;
-  top: 80px;
-  left: 520px;
+  width: 10px;
+  height: 10px;
+  top: 590px;
+  
 }
 
-#drainagelegend {
-  position: absolute;
-  width: 100px;
-  height: 150px;
-  top: 431px;
-  left: 520px;
+.resize {
+  width: 448px;
+  height: auto;
+  left: 0px;
 }
 
 #video {
@@ -74,18 +72,19 @@ body {
   animation: fadeIn 1s
 }
 
-#my_dataviz {
+#my_soilMatrix {
   position: absolute;
   top: 0px;
-  left: 750px;
+  left: 450px;
+}
+
+#my_drainageMatrix {
+  position: absolute;
+  top: 350px;
+  left: 450px;
 }
 
 .tooltip {
   width: 130px;
   position: absolute;
 }
-
-#my_drainageMatrix {
-  top: -10px;
-}
-
