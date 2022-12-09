@@ -13,42 +13,33 @@
 </head>
 
 <body>
-  <h1>Historic Tree Growth in Ohio
-
-  </h1>
-  <!--<b>By: Alexander van Engelen, Nico Fuentes, Michael Luna - University of Colorado Boulder; GEOG 4043 Final Project</b>
-
-        <p>This app was created to visualize different attributes on the growth of Ohio trees in the year 1786. </p>-->
+  <h1>Historic Tree Growth in Ohio</h1>
+  
   <div id="mapId">
     <script src="js/main.js"></script>
   </div>
   <div id="soillegend">
-    <img src="img/soil2.jpeg" alt="Soil Order Legend">
+    <img class="resize" src="img/Legends.jpg"/>
   </div>
-  <div id="drainagelegend">
-    <img src="img/drainage.jpeg" alt="Drainage Legend">
+
+  <div id="my_soilMatrix">
+    <script src="js/soilMatrix.js"></script>
   </div>
-  
-  
-  <div id="my_dataviz">
-    <div id="my_soilMatrix">
-      <script src="js/soilMatrix.js"></script>
-    </div>
 
 
-    <div id="my_drainageMatrix">
-      <script src="js/drainageMatrix.js"></script>
-    </div>
+  <div id="my_drainageMatrix">
+    <script src="js/drainageMatrix.js"></script>
   </div>
-  
+
+
   <div id="video">
     <a href="https://youtu.be/dQw4w9WgXcQ">Video</a>
-    </div>
-  
+  </div>
+
   <div id="popup" onclick="myFunction()">About
     <span class="popuptext" id="myPopup">
       By: Alexander van Engelen, Nico Fuentes, Michael Luna.
-      Created for GEOG 4043 at the University of Colorado Boulder </span>
+      Created for GEOG 4043 at the University of Colorado Boulder. </span>
   </div>
 
   <!--<div id="popup2" onclick="myFunction()">Purpose
