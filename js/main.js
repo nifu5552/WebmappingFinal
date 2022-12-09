@@ -687,5 +687,6 @@ var overlayMaps = {
 };
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
+Order.addTo(map);
 //TreeGroup.addTo(map);
 map.fitBounds(SoilGroup.getBounds());
