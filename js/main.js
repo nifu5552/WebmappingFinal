@@ -6,49 +6,49 @@ function onEachFeature(feature, layer) {
         layer.setStyle({
             fillColor: "#dfc27d",
             stroke: false,
-            fillOpacity: .9
+            fillOpacity: 1
         });
     }
     else if (value == "Excessively drained") {
         layer.setStyle({
             fillColor: "#8c510a",
             stroke: false,
-            fillOpacity: .9
+            fillOpacity: 1
         });
     }
     else if (value == "Moderately well drained") {
         layer.setStyle({
             fillColor: "#f6e8c3",
             stroke: false,
-            fillOpacity: .9
+            fillOpacity: 1
         });
     }
     else if (value == "Somewhat excessively drained") {
         layer.setStyle({
             fillColor: "#bf812d",
             stroke: false,
-            fillOpacity: .9
+            fillOpacity: 1
         });
     }
     else if (value == "Somewhat poorly drained") {
         layer.setStyle({
             fillColor: "#80cdc1",
             stroke: false,
-            fillOpacity: .9
+            fillOpacity: 1
         });
     }
     else if (value == "Poorly drained") {
         layer.setStyle({
             fillColor: "#35978f",
             stroke: false,
-            fillOpacity: .9
+            fillOpacity: 1
         });
     }
     else if (value == "Very poorly drained") {
         layer.setStyle({
             fillColor: "#01665e",
             stroke: false,
-            fillOpacity: .9
+            fillOpacity: 1
         });
     }
     else {
@@ -102,7 +102,7 @@ function onEachFeature2(feature, layer) {
         layer.setStyle({
             fillColor: "#808080",
             stroke: false,
-            fillOpacity: 1
+            fillOpacity: .9
         });
     }
 
@@ -115,15 +115,15 @@ function pointToCircle1(feature, latlng) {
     let StrokeVar = 0;
 
     if ((feature.properties["SP1"]) == "Ash") {
-        fillColorVar = "black",
-        fillOpacityVar= "1";
-    } 
+        fillColorVar = "#b51d14",
+            fillOpacityVar = "1";
+    }
     else {
         fillOpacityVar = 0,
-        StrokeVar =0
+            StrokeVar = 0
         fillColorVar = "blue";
-    } 
-    
+    }
+
     let geojsonMarkerOptions = {
         radius: 3,
         fillColor: fillColorVar,
@@ -146,15 +146,15 @@ function pointToCircle2(feature, latlng) {
     let StrokeVar = 0;
 
     if ((feature.properties["SP1"]) == "Basswood") {
-        fillColorVar = "black",
-        fillOpacityVar= "1";
-    } 
+        fillColorVar = "#fb49b0",
+            fillOpacityVar = "1";
+    }
     else {
         fillOpacityVar = 0,
-        StrokeVar =0
+            StrokeVar = 0
         fillColorVar = "blue";
-    } 
-    
+    }
+
     let geojsonMarkerOptions = {
         radius: 3,
         fillColor: fillColorVar,
@@ -177,15 +177,15 @@ function pointToCircle3(feature, latlng) {
     let StrokeVar = 0;
 
     if ((feature.properties["SP1"]) == "Beech") {
-        fillColorVar = "black",
-        fillOpacityVar= "1";
-    } 
+        fillColorVar = "#A020F0 ",
+            fillOpacityVar = "1";
+    }
     else {
         fillOpacityVar = 0,
-        StrokeVar =0
+            StrokeVar = 0
         fillColorVar = "blue";
-    } 
-    
+    }
+
     let geojsonMarkerOptions = {
         radius: 3,
         fillColor: fillColorVar,
@@ -208,15 +208,15 @@ function pointToCircle4(feature, latlng) {
     let StrokeVar = 0;
 
     if ((feature.properties["SP1"]) == "Cherry") {
-        fillColorVar = "black",
-        fillOpacityVar= "1";
-    } 
+        fillColorVar = "#39FF14",
+            fillOpacityVar = "1";
+    }
     else {
         fillOpacityVar = 0,
-        StrokeVar =0
+            StrokeVar = 0
         fillColorVar = "blue";
-    } 
-    
+    }
+
     let geojsonMarkerOptions = {
         radius: 3,
         fillColor: fillColorVar,
@@ -239,15 +239,15 @@ function pointToCircle5(feature, latlng) {
     let StrokeVar = 0;
 
     if ((feature.properties["SP1"]) == "Elm") {
-        fillColorVar = "black",
-        fillOpacityVar= "1";
-    } 
+        fillColorVar = "#d163e6",
+            fillOpacityVar = "1";
+    }
     else {
         fillOpacityVar = 0,
-        StrokeVar =0
+            StrokeVar = 0
         fillColorVar = "blue";
-    } 
-    
+    }
+
     let geojsonMarkerOptions = {
         radius: 3,
         fillColor: fillColorVar,
@@ -270,15 +270,15 @@ function pointToCircle6(feature, latlng) {
     let StrokeVar = 0;
 
     if ((feature.properties["SP1"]) == "Hackberry") {
-        fillColorVar = "black",
-        fillOpacityVar= "1";
-    } 
+        fillColorVar = "#482796",
+            fillOpacityVar = "1";
+    }
     else {
         fillOpacityVar = 0,
-        StrokeVar =0
+            StrokeVar = 0
         fillColorVar = "blue";
-    } 
-    
+    }
+
     let geojsonMarkerOptions = {
         radius: 3,
         fillColor: fillColorVar,
@@ -301,15 +301,15 @@ function pointToCircle7(feature, latlng) {
     let StrokeVar = 0;
 
     if ((feature.properties["SP1"]) == "Hickory") {
-        fillColorVar = "black",
-        fillOpacityVar= "1";
-    } 
+        fillColorVar = "#443500",
+            fillOpacityVar = "1";
+    }
     else {
         fillOpacityVar = 0,
-        StrokeVar =0
+            StrokeVar = 0
         fillColorVar = "blue";
-    } 
-    
+    }
+
     let geojsonMarkerOptions = {
         radius: 3,
         fillColor: fillColorVar,
@@ -332,15 +332,15 @@ function pointToCircle8(feature, latlng) {
     let StrokeVar = 0;
 
     if ((feature.properties["SP1"]) == "Honey Locust") {
-        fillColorVar = "black",
-        fillOpacityVar= "1";
-    } 
+        fillColorVar = "#2d095c",
+            fillOpacityVar = "1";
+    }
     else {
         fillOpacityVar = 0,
-        StrokeVar =0
+            StrokeVar = 0
         fillColorVar = "blue";
-    } 
-    
+    }
+
     let geojsonMarkerOptions = {
         radius: 3,
         fillColor: fillColorVar,
@@ -363,15 +363,15 @@ function pointToCircle9(feature, latlng) {
     let StrokeVar = 0;
 
     if ((feature.properties["SP1"]) == "Maple") {
-        fillColorVar = "black",
-        fillOpacityVar= "1";
-    } 
+        fillColorVar = "#818b70",
+            fillOpacityVar = "1";
+    }
     else {
         fillOpacityVar = 0,
-        StrokeVar =0
+            StrokeVar = 0
         fillColorVar = "blue";
-    } 
-    
+    }
+
     let geojsonMarkerOptions = {
         radius: 3,
         fillColor: fillColorVar,
@@ -394,15 +394,15 @@ function pointToCircle10(feature, latlng) {
     let StrokeVar = 0;
 
     if ((feature.properties["SP1"]) == "Oak") {
-        fillColorVar = "black",
-        fillOpacityVar= "1";
-    } 
+        fillColorVar = "#796880",
+            fillOpacityVar = "1";
+    }
     else {
         fillOpacityVar = 0,
-        StrokeVar =0
+            StrokeVar = 0
         fillColorVar = "blue";
-    } 
-    
+    }
+
     let geojsonMarkerOptions = {
         radius: 3,
         fillColor: fillColorVar,
@@ -425,15 +425,15 @@ function pointToCircle11(feature, latlng) {
     let StrokeVar = 0;
 
     if ((feature.properties["SP1"]) == "Pine") {
-        fillColorVar = "black",
-        fillOpacityVar= "1";
-    } 
+        fillColorVar = "#e41a1c",
+            fillOpacityVar = "1";
+    }
     else {
         fillOpacityVar = 0,
-        StrokeVar =0
+            StrokeVar = 0
         fillColorVar = "blue";
-    } 
-    
+    }
+
     let geojsonMarkerOptions = {
         radius: 3,
         fillColor: fillColorVar,
@@ -456,15 +456,15 @@ function pointToCircle12(feature, latlng) {
     let StrokeVar = 0;
 
     if ((feature.properties["SP1"]) == "Sycamore") {
-        fillColorVar = "black",
-        fillOpacityVar= "1";
-    } 
+        fillColorVar = "#000080",
+            fillOpacityVar = "1";
+    }
     else {
         fillOpacityVar = 0,
-        StrokeVar =0
+            StrokeVar = 0
         fillColorVar = "blue";
-    } 
-    
+    }
+
     let geojsonMarkerOptions = {
         radius: 3,
         fillColor: fillColorVar,
@@ -487,15 +487,15 @@ function pointToCircle13(feature, latlng) {
     let StrokeVar = 0;
 
     if ((feature.properties["SP1"]) == "Tulip Poplar") {
-        fillColorVar = "black",
-        fillOpacityVar= "1";
-    } 
+        fillColorVar = "#bdbdbd",
+            fillOpacityVar = "1";
+    }
     else {
         fillOpacityVar = 0,
-        StrokeVar =0
+            StrokeVar = 0
         fillColorVar = "blue";
-    } 
-    
+    }
+
     let geojsonMarkerOptions = {
         radius: 3,
         fillColor: fillColorVar,
@@ -518,15 +518,15 @@ function pointToCircle14(feature, latlng) {
     let StrokeVar = 0;
 
     if ((feature.properties["SP1"]) == "Walnut") {
-        fillColorVar = "black",
-        fillOpacityVar= "1";
-    } 
+        fillColorVar = "#690c6e",
+            fillOpacityVar = "1";
+    }
     else {
         fillOpacityVar = 0,
-        StrokeVar =0
+            StrokeVar = 0
         fillColorVar = "blue";
-    } 
-    
+    }
+
     let geojsonMarkerOptions = {
         radius: 3,
         fillColor: fillColorVar,
@@ -549,15 +549,15 @@ function pointToCircle15(feature, latlng) {
     let StrokeVar = 0;
 
     if ((feature.properties["SP1"]) == "Other") {
-        fillColorVar = "black",
-        fillOpacityVar= "1";
-    } 
+        fillColorVar = "#000000",
+            fillOpacityVar = "1";
+    }
     else {
         fillOpacityVar = 0,
-        StrokeVar =0
+            StrokeVar = 0
         fillColorVar = "blue";
-    } 
-    
+    }
+
     let geojsonMarkerOptions = {
         radius: 3,
         fillColor: fillColorVar,
@@ -581,9 +581,9 @@ function addPopups(feature, layer) {
 
 let map = L.map('mapId');
 
-var OpenStreetMap_Mapnik = L.tileLayer('https://api.mapbox.com/styles/v1/alva23/cl7qr2x1b000114pn2bzwliyf/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYWx2YTIzIiwiYSI6ImNsN3FyMXd5bDAxOGszeHFuM3B1MWs2a3EifQ.n0OsLThFKSNJVZ2c-2sr7A', {
-    maxZoom: 20,
-    attribution: '&copy; <a href=”https://www.mapbox.com/about/maps/”>Mapbox</a> &copy; <a href=”http://www.openstreetmap.org/copyright”>OpenStreetMap</a>'
+var OpenStreetMap_Mapnik = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
 
 OpenStreetMap_Mapnik.addTo(map);
@@ -593,7 +593,7 @@ let SoilGroup = L.geoJSON(soildata, {
     //pointToLayer: pointToCircle,
 });
 
-let Order= L.geoJSON(soildata, {
+let Order = L.geoJSON(soildata, {
     onEachFeature: onEachFeature2,
     //pointToLayer: pointToCircle,
 });
@@ -664,29 +664,30 @@ let OtherGroup = L.geoJSON(treedata, {
 //Order.addTo(map);
 
 var baseMaps = {
-    "OpenStreetMap": OpenStreetMap_Mapnik
+    "OpenStreetMap": OpenStreetMap_Mapnik,
 };
 
 var overlayMaps = {
     "Soil Order": Order,
     "Water Drainage": SoilGroup,
-    "Ash" : AshGroup,
-    "Beech" : BeechGroup,
-    "Cherry" : CherryGroup,
-    "Elm" : ElmGroup,
-    "Hackberry" : HackberryGroup,
-    "Hickory" : HickoryGroup,
-    "Honey Locust" : HoneyGroup,
-    "Maple" : MapleGroup,
-    "Oak" : OakGroup,
-    "Pine" : PineGroup,
-    "Sycamore" : SycamoreGroup,
-    "Tulip" : TulipGroup,
-    "Walnut" : WalnutGroup,
-    "Other" : OtherGroup,
+    "Ash": AshGroup,
+    "Beech": BeechGroup,
+    "Cherry": CherryGroup,
+    "Elm": ElmGroup,
+    "Hackberry": HackberryGroup,
+    "Hickory": HickoryGroup,
+    "Honey Locust": HoneyGroup,
+    "Maple": MapleGroup,
+    "Oak": OakGroup,
+    "Pine": PineGroup,
+    "Sycamore": SycamoreGroup,
+    "Tulip": TulipGroup,
+    "Walnut": WalnutGroup,
+    "Other": OtherGroup,
 };
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
 Order.addTo(map);
 //TreeGroup.addTo(map);
 map.fitBounds(SoilGroup.getBounds());
+
