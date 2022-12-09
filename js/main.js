@@ -668,8 +668,8 @@ var baseMaps = {
 };
 
 var overlayMaps = {
-    "Drainage": SoilGroup,
     "Soil Order": Order,
+    "Water Drainage": SoilGroup,
     "Ash" : AshGroup,
     "Beech" : BeechGroup,
     "Cherry" : CherryGroup,
