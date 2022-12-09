@@ -37,11 +37,16 @@ body {
   left: 520px;
 }
 
+#video {
+  position: absolute;
+  top: 760px;
+}
 
 /* Popup container */
 #popup {
   position: absolute;
   top: 760px;
+  left: 90px;
   display: inline-block;
   cursor: pointer;
 }
