@@ -44,20 +44,20 @@
 
         // create a tooltip
       const tooltip = d3.select("#my_soilMatrix")
-        .append("div")
-        .style("opacity", 0)
-        .attr("class", "tooltip")
-        .style("background-color", "white")
-        .style("border", "solid")
-        .style("border-width", "2px")
-        .style("border-radius", "5px")
-        .style("padding", "5px")
+      .append("div")
+      .style("opacity", 0)
+      .attr("class", "tooltip")
+      .style("background-color", "white")
+      .style("border", "solid")
+      .style("border-width", "2px")
+      .style("border-radius", "5px")
+      .style("padding", "5px")
     
       // Three function that change the tooltip when user hover / move / leave a cell
       const mouseover = function(event,d) {
         tooltip.style("opacity", 1)
       }
-      const mousemove = function(event,d) {
+      const mousemover = function(event,d) {
         tooltip
           .html("The exact value of<br>this cell is: " + d.value)
           .style("left", (event.xM)/2 + "px")
@@ -77,8 +77,8 @@
           .attr("width", xM.bandwidth() )
           .attr("height", yM.bandwidth() )
           .style("fill", function(d) { return myColorM(d['Count'])} )
-        .on("mouseover", mouseover)
-        .on("mousemove", mousemove)
-        .on("mouseleave", mouseleave)
+          .on("mouseover", mouseover)
+          .on("mousemove", mousemover)
+          .on("mouseleave", mouseleave)
     })
     
