@@ -65,44 +65,44 @@ function onEachFeature2(feature, layer) {
     var value = feature.properties.Field84;
     if (value == "Alfisols") {
         layer.setStyle({
-            fillColor: "#2166ac",
+            fillColor: "#FACB67",
             stroke: false,
-            fillOpacity: .9
+            fillOpacity: 1
         });
     }
     else if (value == "Mollisols") {
         layer.setStyle({
-            fillColor: "#67a9cf",
+            fillColor: "#DEA75B",
             stroke: false,
-            fillOpacity: .9
+            fillOpacity: 1
         });
     }
     else if (value == "Inceptisols") {
         layer.setStyle({
-            fillColor: "#d1e5f0",
+            fillColor: "#F5AA71",
             stroke: false,
-            fillOpacity: .9
+            fillOpacity: 1
         });
     }
     else if (value == "Ultisols") {
         layer.setStyle({
-            fillColor: "#fddbc7",
+            fillColor: "#DE815B",
             stroke: false,
-            fillOpacity: .9
+            fillOpacity: 1
         });
     }
     else if (value == "Entisols") {
         layer.setStyle({
-            fillColor: "#ef8a62",
+            fillColor: "#FA7C67",
             stroke: false,
-            fillOpacity: .9
+            fillOpacity: 1
         });
     }
     else {
         layer.setStyle({
             fillColor: "#808080",
             stroke: false,
-            fillOpacity: .9
+            fillOpacity: 1
         });
     }
 
