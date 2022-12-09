@@ -57,7 +57,7 @@
       const mouseover = function(event,d) {
         tooltip.style("opacity", 1)
       }
-      const mousemove = function(event,d) {
+      const mousemover = function(event,d) {
         tooltip
           .html("The exact value of<br>this cell is: " + d.value)
           .style("left", (event.x)/2 + "px")
@@ -78,7 +78,7 @@
           .attr("height", y.bandwidth() )
           .style("fill", function(d) { return myColor(d['Count of AllTreesData'])} )
         .on("mouseover", mouseover)
-        .on("mousemove", mousemove)
+        .on("mousemove", mousemover)
         .on("mouseleave", mouseleave)
     })
-    
+  
