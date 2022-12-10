@@ -17,7 +17,7 @@ body {
 
 #mapId {
   width: 440px;
-  height: 500px;
+  height: 530px;
   position: absolute;
 }
 
@@ -25,12 +25,12 @@ body {
   position: absolute;
   width: 10px;
   height: 10px;
-  top: 590px;
+  top: 620px;
   
 }
 
 .resize {
-  width: 448px;
+  width: 440px;
   height: auto;
   left: 0px;
 }
@@ -44,7 +44,7 @@ body {
 #popup {
   position: absolute;
   top: 760px;
-  left: 90px;
+  left: 60px;
   display: inline-block;
   cursor: pointer;
 }
@@ -88,3 +88,4 @@ body {
   width: 130px;
   position: absolute;
 }
+
