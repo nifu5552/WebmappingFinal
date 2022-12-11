@@ -14,12 +14,12 @@
 
 <body>
   <h1>Historic Tree Growth in Ohio</h1>
-  
+
   <div id="mapId">
     <script src="js/main.js"></script>
   </div>
   <div id="soillegend">
-    <img class="resize" src="img/Legends.jpg"/>
+    <img class="resize" src="img/Legends.jpg" />
   </div>
 
   <div id="my_soilMatrix">
@@ -31,27 +31,61 @@
     <script src="js/drainageMatrix.js"></script>
   </div>
 
-
-  <div id="video">
-    <a href="https://youtu.be/dQw4w9WgXcQ">Video</a>
+  <div class="box">
+    <a class="button" href="#popup1">Information</a>
   </div>
+  <div id="popup1" class="overlay">
+    <div class="popup">
+      <h2>Information</h2>
+      <a class="close" href="#">×</a>
+      <div class="content">
+        <p><b>Creators:</b> Nico Fuentes, Michael Luna, Alexander van Engelen</p>
+        <p>Made for Dr. Karimzadeh's Geography 4043 - Advanced Geovisualization and Web Mapping at the University of
+          Colorado Boulder</p>
+        <p><b>Introduction:</b></p>
+        <p>This tool was created to assist researchers in exploring historic tree data of pre-columbian Ohio. This data
+          can assist researchers in finding the historic locations of many tree types, and how the soil interacts with
+          the growing patterns of these trees.</p>
+        <p><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><b>Tutorial Video</b></a></p>
+        <p><b>Data Source:</b></p>
+        <p>Tree data recorded through 1786 survey data of the greater Ohio region. Locations in which survey markers
+          should be placed were often occupied by trees. Surveyors marked each location by what type of tree was located
+          in the area. Coded into shapefile data by the University of Notre Dame.</p>
+        <p>Soil data collected through the US Department of Agriculture's Geospatial Data Gateway on the nation Soil
+          Survey Geographic Database (SSURGO). Data displayed is Soil Order and Drainage.</p>
+        <p><b>Data Links:</b></p>
+        <p>
+          <a href="https://datagateway.nrcs.usda.gov/GDGHome_DirectDownLoad.aspx">Soil Data</a>
+        </p>
+        <p>
+          <a href="https://portal.edirepository.org/nis/mapbrowse?scope=msb-paleon&identifier=3">Tree Type Raw Data</a>
+        </p>
+        <p>
+          <a href="https://doi.org/10.1674/0003-0031-176.2.247">Tree Type Journal Citation</a>
+        </p>
+        <p><b>Contact:</b> Nicolas.Fuentes@colorado.edu; Michael.Luna@colorado.edu; Alexander.VanEngelen@colorado.edu
+        </p>
 
-  <div id="popup" onclick="myFunction()">About
-    <span class="popuptext" id="myPopup">
-      By: Alexander van Engelen, Nico Fuentes, Michael Luna.
-      Created for GEOG 4043 at the University of Colorado Boulder. </span>
-  </div>
+        <!-- <div id="video">
+          <a href="https://youtu.be/dQw4w9WgXcQ">Video</a>
+        </div> -->
 
-  <!--<div id="popup2" onclick="myFunction()">Purpose
+        <!-- <div id="popup" onclick="myFunction()">About
+          <span class="popuptext" id="myPopup">
+            By: Alexander van Engelen, Nico Fuentes, Michael Luna.
+            Created for GEOG 4043 at the University of Colorado Boulder. </span>
+        </div> -->
+
+        <!--<div id="popup2" onclick="myFunction()">Purpose
     <span class="popuptext2" id="myPopup2"> This app was created to visualize different attributes on the growth of Ohio trees in the year 1786. </span>
   </div>-->
 
-  <script>
-    function myFunction() {
-      var popup = document.getElementById("myPopup");
-      popup.classList.toggle("show");
-    }
-  </script>
+        <!-- <script>
+          function myFunction() {
+            var popup = document.getElementById("myPopup");
+            popup.classList.toggle("show");
+          }
+        </script> -->
 </body>
 
 </html>
