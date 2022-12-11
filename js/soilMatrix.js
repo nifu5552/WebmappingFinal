@@ -30,13 +30,13 @@
     const yM = d3.scaleBand()
       .range([ heightM, 0 ])
       .domain(myVarsM)
-      .padding(0.01);
+      .padding(0.1); // was 0.1
     svgM.append("g")
       .call(d3.axisLeft(yM));
 
     // Build color scale
     const myColorM = d3.scaleLinear()
-      .range(["white", "#4d1735"])
+      .range(["#f8f6f7", "#4d1735"])
       .domain([1,500])
 
     //Read the data
@@ -59,9 +59,9 @@
       }
       const mousemover = function(event,d) {
         tooltip
-          .html("The exact value of<br>this cell is: " + d.value)
-          .style("left", (event.xM)/2 + "px")
-          .style("top", (event.yM)/2 + "px")
+          .html("The exact value of<br>this cell is: " + d.Count)
+          .style("left", 835 + "px")
+          .style("top", 80 + "px")
       }
       const mouseleave = function(d) {
         tooltip.style("opacity", 0)
@@ -76,6 +76,8 @@
           .attr("y", function(d) { return yM(d['Tree Type']) })
           .attr("width", xM.bandwidth() )
           .attr("height", yM.bandwidth() )
+          .attr("rx", "5") // makes the boxes curved, increase values for more curve 
+          .attr("ry", "5")
           .style("fill", function(d) { return myColorM(d['Count'])} )
           .on("mouseover", mouseover)
           .on("mousemove", mousemover)
